@@ -4,7 +4,7 @@
 Questo progetto è stato sviluppato per l'esame di Ingegneria dei Sistemi Software 2025. L'obiettivo del progetto è implementare il gioco della vita di Conway utilizzando tecniche di ingegneria del software.
 
 ## Relazione di Autovalutazione
-- Relazione visibile al seguente link: [Relazione di Autovalutazione](relazione_autovalutazione.pdf)
+- Relazione visibile al seguente link: [Relazione di Autovalutazione](relazione_autovalutzione.pdf)
 
 ## Autori
 - Nicolò Venieri

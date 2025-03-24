@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>relazione_autovalutzione</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="relazione-fase-1---iss25">Relazione Fase 1 - ISS25</h1>
+<h2 id="informazioni-generali">Informazioni Generali</h2>
+<p><strong>Nome:</strong> Nicolò Venieri</p>
+<p><strong>Repository GIT:</strong> <a href="https://github.com/unibonicolovenieri/Conway.git">Conway_nicolovenieri</a></p>
+<h2 id="finalit%C3%A0-della-prima-fase-e-aspettative-per-le-fasi-successive">Finalità della Prima Fase e Aspettative per le Fasi Successive</h2>
+<p>Durante la prima fase, sono stati sviluppati e testati diversi sistemi, tra cui il <strong>Gioco della Vita di Conway</strong>, implementato utilizzando <strong>Java</strong> e <strong>Spring Boot</strong>. Questo progetto ha permesso di comprendere il funzionamento di un sistema distribuito e la sua interazione tramite protocolli di comunicazione.</p>
+<p>Per le fasi successive, ci aspettiamo di raggiungere un sistema distribuito su ogni &quot;edge device&quot;, dove l'elaborazione del servizio non sarà più centralizzata.</p>
+<h2 id="sistemi-realizzati-e-sperimentati">Sistemi Realizzati e Sperimentati</h2>
+<p>Durante queste settimane di lezione, ho testato e implementato il codice fornito dal docente, approfondendo le logiche implementative e il loro ruolo funzionale nel sistema in sviluppo. Ho sperimentato in modo efficace la comunicazione tramite <strong>MQTT</strong>, valutandola come un concetto chiave per rendere l’architettura più indipendente dalle <strong>WebSocket</strong>. Ritengo che questa comprensione sia essenziale per affrontare la seconda fase dello sviluppo dell’applicazione.</p>
+<h2 id="abilit%C3%A0-e-competenze-acquisite">Abilità e Competenze Acquisite</h2>
+<ul>
+<li><strong>Utilizzo di Java con i principi di ingegneria del software</strong>: Ho appreso l’uso di <strong>Java</strong> applicando concetti fondamentali dell’ingegneria del software, come il <strong>Factory Pattern</strong> per una gestione più modulare della creazione degli oggetti e il <strong>Pattern Observer</strong> per implementare una comunicazione reattiva tra componenti.</li>
+<li><strong>Gestione delle dipendenze con Gradle</strong>: Ho imparato a utilizzare <strong>Gradle</strong> per la gestione delle dipendenze e l’automazione del sistema di build, semplificando l’integrazione di librerie e framework nel progetto.</li>
+<li><strong>Introduzione a Spring Boot</strong>: Ho acquisito familiarità con <strong>Spring Boot</strong>, comprendendo come facilita la creazione di applicazioni enterprise grazie alla sua configurazione automatica e alla gestione dei componenti.</li>
+<li><strong>Comunicazione tramite MQTT</strong>: Ho sperimentato l’uso del protocollo <strong>MQTT</strong> per la comunicazione tra componenti, scegliendolo come alternativa alle <strong>WebSocket</strong> per garantire un’architettura più scalabile, indipendente e adatta a scenari di comunicazione asincrona.</li>
+</ul>
+<h2 id="motivazione-della-scelta-del-%22gioco-della-vita-di-conway%22">Motivazione della Scelta del &quot;Gioco della Vita di Conway&quot;</h2>
+<p>A mio parere, il <strong>Gioco della Vita di Conway</strong> è stato scelto perché presenta regole semplici, riducendo la complessità della fase di analisi del problema e permettendo di concentrarsi direttamente sull'implementazione.</p>
+<p>Inoltre, lo sviluppo del gioco basato su celle si presta bene al concetto di <strong>sistema distribuito</strong> e alla <strong>divisione dei compiti</strong>. Ritengo che in futuro si potrebbe arrivare a delegare a dispositivi specifici la gestione di una singola cella o di piccoli gruppi di celle all'interno di una grande griglia, riflettendo un'architettura distribuita su larga scala.</p>
+<h2 id="scelta-di-java-e-spring-boot">Scelta di Java e Spring Boot</h2>
+<p>Spring Boot è ideale per lo sviluppo di sistemi distribuiti grazie alla sua capacità di gestire microservizi in modo scalabile e modulare. Offre configurazioni predefinite, supporto nativo per MQTT e integrazione con strumenti come Docker e Kubernetes. La Dependency Injection (DI) migliora la manutenibilità del codice. Infine, essendo basato su Java, garantisce stabilità, compatibilità e un ampio ecosistema di librerie.</p>
+<h2 id="aspetti-di-ingegneria-del-software">Aspetti di Ingegneria del Software</h2>
+<p>Durante lo sviluppo del progetto, sono stati applicati concetti chiave dell'ingegneria del software. Il principio della <strong>Single Responsibility</strong> è stato utilizzato per assicurare che ogni classe avesse una sola responsabilità. Inoltre, il <strong>Pattern Observer</strong> è stato impiegato per gestire la comunicazione tra oggetti in modo reattivo, mentre il <strong>Factory Method</strong> ha permesso di creare oggetti in modo flessibile senza dipendere direttamente dalle classi concrete. Infine, l'<strong>Inversione delle dipendenze</strong> è stata implementata per separare le dipendenze tra i componenti.</p>
+<h2 id="il-sistema-sviluppato-%C3%A8-un-sistema-distribuito-basato-su-microservizi">Il Sistema sviluppato è un sistema distribuito basato su microservizi?</h2>
+<p>Il sistema sviluppato adotta un'architettura a microservizi, ma attualmente non può essere considerato un sistema distribuito completo. Siamo in una fase di transizione in cui i microservizi gestiscono la GUI, la comunicazione e la logica di gioco. Per definirlo un sistema distribuito, ogni singolo &quot;nodo&quot; dovrebbe essere parte di una rete funzionale, operando in modo indipendente dagli altri. Inoltre, il sistema dovrebbe garantire il funzionamento del servizio anche in caso di malfunzionamento di uno o più nodi.</p>
+<h2 id="ruolo-delle-librerie-%22custom%22">Ruolo delle Librerie &quot;Custom&quot;</h2>
+<p>L'adozione di librerie personalizzate, come <code>unibo.basicomm23-1.0.jar</code>, ha facilitato l'astrazione nella gestione della comunicazione tramite MQTT. Questo approccio ha garantito una maggiore flessibilità e riusabilità del codice, permettendo di elevare il livello di astrazione e semplificando l'integrazione di nuove funzionalità. L'uso di tali librerie ha contribuito a rendere il sistema più modulare e manutenibile.</p>
+<h2 id="ruolo-del-concetto-di-linguaggio">Ruolo del Concetto di Linguaggio</h2>
+<p>Il concetto di linguaggio rispetto all'utilizzo di librerie rappresenta un salto evolutivo, garantendo vantaggi significativi in vari aspetti:</p>
+<ul>
+<li><strong>Astrazione</strong>: A differenza delle librerie, un linguaggio personalizzato permette di avere un controllo maggiore e di creare nuove semantiche e sintassi più vicine alla soluzione del problema.</li>
+<li><strong>Comportamento e Semantica</strong>: Consente di definire nuove regole, comportamenti e modelli di esecuzione in base alle necessità  del progetto.</li>
+<li><strong>Specializzazione</strong>: Un linguaggio permette di creare soluzioni specifiche e, allo stesso tempo, facilmente manutenibili, a differenza delle librerie che offrono strumenti generici.</li>
+<li><strong>Evoluzione</strong>: Risolvere un problema tramite librerie implica l'uso di strumenti già esistenti, mentre con un linguaggio personalizzato si può creare una soluzione su misura senza dover necessariamente avvalersi di strumenti preesistenti.</li>
+</ul>
+<p>Venieri Nicolò</p>
+
+</body>
+</html>
