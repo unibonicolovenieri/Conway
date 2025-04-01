@@ -36,6 +36,7 @@ kotlin {
 repositories {
     mavenCentral()
     flatDir {   dirs '../unibolibs'	 }
+    flatDir {	dirs 'applibs'}
 }
 
 /*
@@ -121,8 +122,7 @@ dependencies {
     implementation name: '2p301'
 	implementation name: 'unibo.qakactor23-5.0'
     implementation name: 'unibo.basicomm23-1.0'
-
-
+	implementation name: 'conway25JavaMqtt-1.0'
     
     //USER libs for facades
     
